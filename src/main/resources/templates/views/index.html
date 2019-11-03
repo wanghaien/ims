@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>管理系统</title>
+	<script type="text/javascript" th:src="@{lib/easyui/jquery.min.js}"></script>
+	<script type="text/javascript" th:src="@{lib/easyui/jquery.easyui.min.js}"></script>
+	<script type="text/javascript" th:src="@{lib/easyui/locale/easyui-lang-zh_CN.js}"></script>
+	<script type="text/javascript" th:src="@{lib/js/common/base.js}"></script>
+	<link th:href="@{lib/easyui/themes/bootstrap/easyui.css}" rel="stylesheet" type="text/css" />
+	<link th:href="@{lib/font-awesome/css/font-awesome.min.css}" rel="stylesheet" type="text/css" />
+	<link th:href="@{lib/easyui/themes/bootstrap/system.css}" rel="stylesheet" type="text/css"/>
+</head>
+
+<body class="easyui-layout">
+	<div data-options="region:'north',border:false" class="super-north">
+		<!--顶部-->
+		<div class="super-navigation">
+			<!--系统名称-->
+			<div class="super-navigation-title">管理系统</div>
+			<!--自定义导航-->
+			<div class="super-navigation-main">
+				<div class="super-setting-left">
+					<ul>
+						<li th:each="module : ${modules}" th:id="${module.id}">
+							<i th:class="${module.iconCls}"></i>
+							<a th:text="${module.text}"></a>
+						</li>
+					</ul>
+				</div>
+				<div class="super-setting-right">
+					<ul>
+						<li>
+							<div class="super-setting-icon">
+								<i class="fa fa-gears"></i>
+							</div>
+							<div id="mm" class="easyui-menu">
+								<div>个人中心</div>
+								<div id="themeSetting">主题</div>
+								<div class="menu-sep"></div>
+								<div id="logout">退出</div>
+							</div>
+						</li>
+						<li class="user">
+							<span class="user-icon" ><img src="http://img1.imgtn.bdimg.com/it/u=1062804335,1123227458&fm=26&gp=0.jpg"/></span>
+						</li>
+						<li>
+							<a th:text="${username}"></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div data-options="region:'west',title:'导航栏',border:false" class="super-west">
+		<!--左侧导航-->
+		<div class="easyui-accordion" data-options="border:false,fit:true,selected:true" id="menu"></div>
+	</div>
+	<div data-options="region:'center'" style="padding-top: 2px;">
+		<!--主要内容-->
+		<div id="tt" class="easyui-tabs" data-options="border:false,fit:true">
+			<div title="首页" data-options="iconCls:'fa fa-home'">
+				<div style="padding: 20px;">
+					主页
+				</div>
+			</div>
+		</div>
+	</div>
+	<div data-options="region:'south'" class="super-south">
+		<!--页脚-->
+		<div class="super-footer-info">
+			<span><i class="fa fa-info-circle"></i> 作者：wanghaien</span>
+			<span><i class="fa fa-copyright"></i> CopyRight 2019 版权所有 <i class="fa fa-caret-right"></i></span>
+		</div>
+	</div>
+
+	<!--主题设置弹窗-->
+	<div id="win">
+		<div class="themeItem">
+			<ul>
+				<li>
+					<div class="1abc9c" style="background: #1abc9c">青绿</div>
+				</li>
+				<li class="themeActive">
+					<div class="3498db" style="background: #3498db">天蓝</div>
+				</li>
+				<li>
+					<div class="95a5a6" style="background: #95a5a6">暗灰</div>
+				</li>
+				<li>
+					<div class="9b59b6" style="background: #9b59b6">朱紫</div>
+				</li>
+				<li>
+					<div class="34495e" style="background: #34495e">酷黑</div>
+				</li>
+				<li>
+					<div class="cfb53b" style="background: #cfb53b">金黄</div>
+				</li>
+				<li>
+					<div class="2ecc71" style="background: #2ecc71">翠绿</div>
+				</li>
+				<li>
+					<div class="db9370" style="background: #db9370">棕褐</div>
+				</li>
+				<li>
+					<div class="99CCCC" style="background: #99CCCC">淡蓝</div>
+				</li>
+				<li>
+					<div class="FF9999" style="background: #FF9999">粉红</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

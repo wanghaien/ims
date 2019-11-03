@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <div id = "mainPanel" class="easyui-layout" style="width:100%;height:100%;">
+        <div data-options="region:'center'">
+            <div th:replace="~{ ${entity} + '/main'}"></div>
+        </div>
+        <div data-options="region:'east'" style="width:50%">
+            <div class="easyui-panel" title="编辑" style="width: 100%;height: 100%;">
+                <div th:replace="~{ ${entity} + '/detail'}"/>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

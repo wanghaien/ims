@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<table id="mainTable" data-options="idField:'id',multiSort:true,showFooter:true,rownumbers:true,pagination:true,fit:true,striped:true,pageNumber:1,pageSize:20,pageList:[20,50,100,500,1000],method:'get'" th:url="${'/' + entity+'/listPage'}">
+    <thead>
+    <tr>
+        <th data-options="field:'ck',checkbox:true"></th>
+        <th th:each="col : ${UITables}"
+            th:field='${col.field}'
+            th:utext="${col.title}"
+            th:width="${col.width}"
+            th:align="${col.align}"
+            th:sortable="${col.sortable}"
+        >
+        </th>
+    </tr>
+    </thead>
+</table>
+</html>

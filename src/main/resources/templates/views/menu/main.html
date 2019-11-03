@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head	th:replace="component/header :: common_header(~{::script},~{})">
+        <script type="text/javascript" th:src="@{../lib/js/menu/main.js}"></script>
+    </head>
+    <body class="easyui-layout" id = "currentTab">
+        <div data-options="region:'center'">
+            <!--<table id="mainTable" class="easyui-datagrid" th:url="${entity}"></table>-->
+            <!--<div th:replace="~{ 'component/toolbar'}"/>-->
+            <div th:replace="~{ 'component/table'}"/>
+        </div>
+        <div data-options="region:'east'" style="width:50%">
+            <div class="easyui-panel" title="编辑" style="width: 100%;height: 100%;">
+                <div th:replace="~{ 'component/functionBar'}"/>
+                <div th:replace="~{ 'component/form'}"/>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <div id = 'toolbar' style="display: inline-flex">
+        <div style="display: inline-flex">
+            <div style="text-align: left" th:each="functions ,iterStat: ${functions}">
+                <span class="easyui-linkbutton" data-options="plain:true"  th:text="${functions.text}" th:iconCls="${functions.iconCls}"/>
+                <div th:if="${iterStat.index}" class='datagrid-btn-separator'></div>
+            </div>
+        </div>
+    </div>
+</html>

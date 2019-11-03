@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="common_header(scripts,links)">
+    <script type="text/javascript" th:src="@{../lib/easyui/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{../lib/easyui/jquery.easyui.min.js}"></script>
+    <script type="text/javascript" th:src="@{../lib/easyui/locale/easyui-lang-zh_CN.js}"></script>
+    <script type="text/javascript" th:src="@{../lib/easyui/datagrid-filter.js}"></script>
+    <script type="text/javascript" th:src="@{../lib/js/common/common.js}"></script>
+    <script th:inline="javascript">
+        var functions = [[${functions}]];
+        var toolbar=[];
+        for(var i = 0;i<functions.length;i++){
+            toolbar.push(functions[i]);
+            toolbar.push("-");
+        }
+    </script>
+    <link th:href="@{../lib/easyui/themes/bootstrap/easyui.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{../lib/font-awesome/css/font-awesome.min.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{../lib/easyui/themes/bootstrap/system.css}" rel="stylesheet" type="text/css"/>
+    <th:block	th:replace="${scripts}"/>
+    <th:block	th:replace="${links}"/>
+</head>
+</html>

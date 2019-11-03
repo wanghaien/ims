@@ -1,0 +1,54 @@
+<div>
+    <div  style="text-align:right;margin: 10px">
+        <a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'fa fa-floppy-o'" onclick="save()">保存</a>
+        <a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'fa fa-times'" onclick="closeRightPanel()">关闭</a>
+    </div>
+    <form  id="detailForm" class="easyui-form" method="post" data-options="novalidate:true">
+        <table cellpadding="10" cellspacing="10" style="margin-left: 20px">
+            <tr>
+                <td>登录名:</td>
+                <td><input class="easyui-textbox" type="text" name="userName" data-options="required:true"></input></td>
+
+                <td>用户名:</td>
+                <td><input class="easyui-textbox" type="text" name="realName" data-options="required:true"></input></td>
+            </tr>
+            <tr>
+                <td>密码:</td>
+                <td><input class="easyui-textbox" type="text" name="passWord" data-options="required:true"></input></td>
+                <td>电话:</td>
+                <td><input class="easyui-textbox" type="text" name="telephone" data-options="required:true"></input></td>
+            </tr>
+            <tr>
+                <td>邮箱:</td>
+                <td><input class="easyui-textbox" type="text" name="email" data-options="required:true"></input></td>
+                <td>生日:</td>
+                <td><input class="easyui-textbox" type="text" name="brithday" data-options="required:true"></input></td>
+            </tr>
+            <tr>
+                <td>身份证:</td>
+                <td><input class="easyui-textbox" type="text" name="idNumber" data-options="required:true"></input></td>
+                <td>密码:</td>
+                <td><input class="easyui-textbox" type="text" name="passWord" data-options="required:true"></input></td>
+            </tr>
+
+        </table>
+    </form>
+</div>
+
+<script th:inline="javascript" >
+
+    var closeRightPanel = function(){
+        $('#mainPanel').layout('hidden','east');
+        $('#mainPanel').layout();
+    }
+    var save = function(){
+        $('#detailForm').form('submit',{
+            onSubmit:function(){
+                return $(this).form('enableValidation').form('validate');
+            }
+        });
+    }
+
+
+
+</script>
