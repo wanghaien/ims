@@ -19,11 +19,11 @@ $(function() {
         var theme = localStorage.getItem('theme');
         if(theme != null){
             changeTheme(theme);
+            var color = theme.split(',')[0].replace("#",'');
+            // 添加勾选状态
+            $(".themeItem ul li").removeClass('themeActive');
+            $('.themeItem ul li .' + color).parent().addClass('themeActive');
         }
-        var color = theme.split(',')[0].replace("#",'');
-        // 添加勾选状态
-        $(".themeItem ul li").removeClass('themeActive');
-        $('.themeItem ul li .' + color).parent().addClass('themeActive');
     }
     var changeTheme = function(theme){
         var root = document.querySelector(':root');

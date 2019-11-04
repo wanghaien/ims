@@ -33,14 +33,14 @@ public class UserService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         SystemUser user = userRepository.findByUserName(username);
         if (user != null) {
-            List<SystemPermission> permissions = permissionRepository.findByUserId(user.getId());
+            //List<SystemPermission> permissions = permissionRepository.findByUserId(user.getId());
             List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
-            for (SystemPermission permission : permissions) {
-                if (permission != null && permission.getPermissionname()!=null) {
-                    GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(permission.getPermissionname());
-                    grantedAuthorities.add(grantedAuthority);
-                }
-            }
+//            for (SystemPermission permission : permissions) {
+//                if (permission != null && permission.getPermissionname()!=null) {
+//                    GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(permission.getPermissionname());
+//                    grantedAuthorities.add(grantedAuthority);
+//                }
+//            }
             BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
             String encode = passwordEncoder.encode(user.getPassWord());
             return new User(user.getUserName(), user.getPassWord(), grantedAuthorities);
